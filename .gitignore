@@ -1,0 +1,8 @@
+node_modules
+.vscode
+release-builds
+dest
+dist/**/**/*.js
+dist/**/*.js
+dist/*.js
+
