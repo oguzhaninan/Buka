@@ -1,6 +1,6 @@
 
-<p align="center">Sc
-    <img src="https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/img/screenshots/header.png" width="500">
+<p align="center">
+    <img src="https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/screenshots/header.png" width="500">
 </p>
 <p align="center">
   <b>Buka - EBook Management</b>
@@ -42,13 +42,12 @@ Sc
 - Run `sudo dpkg -r Buka`
 
 ## Screenshots
+![s1](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/screenshots/Screenshot1.png)
 
-![s1](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/img/screenshots/Screenshot1.png)
+![s2](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/screenshots/Screenshot2.png)
 
-![s2](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/img/screenshots/Screenshot2.png)
+![s3](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/screenshots/Screenshot3.png)
 
-![s3](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/img/screenshots/Screenshot3.png)
+![s4](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/screenshots/Screenshot4.png)
 
-![s4](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/img/screenshots/Screenshot4.png)
-
-![s5](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/img/screenshots/Screenshot5.png)
+![s5](https://raw.githubusercontent.com/oguzhaninan/Buka/master/assets/screenshots/Screenshot5.png)
