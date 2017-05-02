@@ -1,6 +1,7 @@
-
-import { mapGetters } from 'vuex'
-import translate from 'google-translate-api'
+import {
+	mapGetters
+} from 'vuex'
+import gtranslate from 'node-google-translate-skidz'
 import languages from '../utils/languages'
 
 export default {
@@ -37,13 +38,22 @@ export default {
 		translate() {
 			if (this.sourceText) {
 				this.transLoader = true
-				translate(this.sourceText, { from: this.sourceSelectedLang, to: this.targetSelectedLang })
-					.then(res => {
-						this.targetText = res.text
-						this.transLoader = false
-					}).catch(err => {
-						this.transLoader = false
+				try {
+					gtranslate({
+						text: this.sourceText,
+						source: this.sourceSelectedLang,
+						target: this.targetSelectedLang
+					}, result => {
+						if (result.translation){
+							this.targetText = result.translation
+							this.transLoader = false
+						}
+						else
+							this.transLoader = false						
 					})
+				} catch (error) {					
+						this.transLoader = false
+				}				
 			}
 		},
 		switchLangs() {

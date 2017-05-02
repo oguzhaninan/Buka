@@ -6,10 +6,10 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "npm run clean; babel src/ -d dist/",
+    "build": "babel src/ -d dist/",
     "clean": "rm dist/**/**/*.js dist/**/*.js dist/*.js ",
-    "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.4.15",
-    "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64  --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.4.15",
+    "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
+    "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64  --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
     "installer-x86": "electron-installer-debian --src release-builds/Buka-linux-ia32/ --arch i386 --dest dest/installers/ --icon assets/img/icon.png",
     "installer-x64": "electron-installer-debian --src release-builds/Buka-linux-x64/ --arch amd64 --dest dest/installers/ --icon assets/img/icon.png",
     "release-x86": "npm run package-x86 && npm run installer-x86",
@@ -34,18 +34,23 @@
     "email": "oguzhan3488@gmail.com",
     "url": "https://github.com/oguzhaninan/Buka/issues"
   },
+  "build": {
+    "linux": {
+      "icon": "assets/img/icons"
+    }
+  },
   "homepage": "https://github.com/oguzhaninan/Buka",
   "dependencies": {
     "alertify.js": "^1.0.12",
-    "google-translate-api": "^2.2.2",
     "nedb": "^1.8.0",
+    "node-google-translate-skidz": "^1.1.1",
     "request": "^2.81.0",
-    "vuex": "^2.2.1"
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
+    "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-es2015": "^6.22.0",
-    "electron": "^1.4.15"
+    "babel-preset-es2015": "^6.24.1",
+    "electron": "^1.6.6"
   }
 }
