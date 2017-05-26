@@ -19,20 +19,40 @@
 
 ## Installing
 
-### Linux x86
+### [Snap](https://snapcraft.io/docs/core/install)
+
+1. Run `sudo snap install buka`
+- OR
+1. Download `buka_1.0.0_amd64.snap` from the [Buka releases page](https://github.com/oguzhaninan/Buka/releases).
+2. Run `sudo snap install --dangerous buka_1.0.0_amd64.snap` on the downloaded package.
+3. Launch Buka using the installed `buka` command.
+
+### Debian x86
 
 1. Download `Buka_1.0.0_i386.deb` from the [Buka releases page](https://github.com/oguzhaninan/Buka/releases).
 2. Run `sudo dpkg --install Buka_1.0.0_i386.deb` on the downloaded package.
 3. Launch Buka using the installed `Buka` command.
 
-### Linux x64
+### Debian x64
 
 1. Download `Buka_1.0.0_amd64.deb` from the [Buka releases page](https://github.com/oguzhaninan/Buka/releases).
 2. Run `sudo dpkg --install Buka_1.0.0_amd64.deb` on the downloaded package.
 3. Launch Buka using the installed `Buka` command.  
 
-
 > Of course you can always open .deb package with a package manager like Synaptic, Gnome Software or Gdebi then start the app instead of using command line options.
+
+### Fedora 
+
+1. Download `Buka-1.0.0.rpm` from the [Buka releases page](https://github.com/oguzhaninan/Buka/releases).
+2. Run `sudo dnf install Buka-1.0.0.rpm` on the downloaded package.
+3. Launch Buka using the installed `Buka` command.  
+
+
+### AppImage
+
+1. Download `Buka-1.0.0-x86_64.AppImage` from the [Buka releases page](https://github.com/oguzhaninan/Buka/releases).
+2. Make it executable `sudo chmod a+x Buka*.AppImage`
+3. Run `./Buka*.AppImage`
 
 ## Build from source
 
