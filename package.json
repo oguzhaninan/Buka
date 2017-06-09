@@ -10,10 +10,16 @@
     "clean": "rm bundle/**/**/*.js bundle/**/*.js bundle/*.js ",
     "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
     "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64  --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
+    "package-win-x86": "electron-packager . --overwrite --platform=win32 --arch=x86  --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
+    "package-win-x64": "electron-packager . --overwrite --platform=win32 --arch=x64  --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
     "installer-x86": "electron-installer-debian --src release-builds/Buka-linux-ia32/ --arch i386 --dest dest/installers/ --icon assets/img/icon.png",
     "installer-x64": "electron-installer-debian --src release-builds/Buka-linux-x64/ --arch amd64 --dest dest/installers/ --icon assets/img/icon.png",
+    "installer-win-x86": "electron-installer-windows --src release-builds/Buka-win32-ia32/ --arch i386 --dest dest/installers/ --icon assets/img/icon.png",
+    "installer-win-x64": "electron-installer-windows --src release-builds/Buka-win32-x64/ --arch amd64 --dest dest/installers/ --icon assets/img/icon.png",
     "release-x86": "npm run package-x86 && npm run installer-x86",
     "release-x64": "npm run package-x64 && npm run installer-x64",
+    "release-win-x86": "npm run package-win-x86 && npm run installer-win-x86",
+    "release-win-x64": "npm run packagewin-x64 && npm run installer-win-x64",
     "clean-package": "rm -r release-builds/ dest/"
   },
   "keywords": [
