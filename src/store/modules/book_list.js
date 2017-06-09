@@ -71,7 +71,7 @@ const actions = {
 						let info = props.meta.info != null ? props.meta.info : {}
 
 						let bookName = (metadata['dc:title'] != '()' ? metadata['dc:title'] : '')
-							|| bookPath.match(/.*\/(.+?)\./).pop()
+							|| bookPath.match(/.*[\/\\](.+?)\./).pop()
 							|| 'Untitled'
 						let bookAuthor = info.Author
 							|| metadata['dc:author']
