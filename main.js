@@ -6,6 +6,8 @@ const {
 
 const electron = require('electron')
 
+const electronConnect = require('electron-connect');
+
 let win
 
 function createWindow() {
@@ -32,7 +34,12 @@ function createWindow() {
 
     win.loadURL(`file://${__dirname}/bundle/index.html`)
 
-    win.on("closed", () => win = null )
+    const client = electronConnect.client.create(win);
+
+    win.on("closed", () => {
+        win = null;
+        client.sendMessage('closed');
+    });
 
 }
 
