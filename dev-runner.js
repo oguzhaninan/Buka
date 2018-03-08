@@ -10,8 +10,10 @@ function greeting() {
 }
 
 function startApp() {
-  spawn(npm_command, ['run',  'build']); // build first time
-  electron.start();
+  const build = spawn(npm_command, ['run',  'build']);
+  build.on('close', function() {
+    electron.start();
+  });
 }
 
 function startWatch() {
