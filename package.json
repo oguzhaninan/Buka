@@ -7,6 +7,7 @@
   "scripts": {
     "start": "electron .",
     "build": "babel src/ -d bundle/",
+    "dev": "node dev-runner.js",
     "clean": "rm bundle/**/**/*.js bundle/**/*.js bundle/*.js ",
     "package-x86": "electron-packager . --overwrite --platform=linux --arch=ia32 --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
     "package-x64": "electron-packager . --overwrite --platform=linux --arch=x64  --icon=assets/img/icon.png --prune=true --out=release-builds --electron-version=1.6.6",
@@ -60,6 +61,8 @@
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
-    "electron": "^1.6.6"
+    "electron": "^1.6.6",
+    "electron-connect": "^0.6.3",
+    "node-watch": "^0.5.7"
   }
 }
