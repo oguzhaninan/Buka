@@ -8,19 +8,55 @@ const actions = {
 	 * @param {string} bookPath
 	 */
 	openBook({ rootState }, bookPath) {
-		rootState.app.openedBookPath = '../pdfviewer/web/viewer.html?file=' + bookPath
-		rootState.app.toggleBooksContent = false
+		let Datastore = require('nedb')
+		let db = new Datastore({ filename: 'locations.json', autoload: true })
 
-		// The address of the external links clicked in the book is given to the input named <externalLink>.		
-		try {
-			document.getElementById('book-viewer-iframe').onload = () => {
-				let externalLink = document.getElementById('book-viewer-iframe').contentDocument.getElementById('externalLink')
-				// Where the input named <externalLink> is listened to and opened on the browser when the value changes.		
-				if (externalLink)
-					externalLink.onchange = () => shell.openExternal(externalLink.value)
+		db.find({ path: bookPath }, function (err, docs) {
+			let currentPage = 1
+
+			if (docs.length === 0) {
+				// Page was not found. Initialize book in db to page 1
+				db.insert({ path: bookPath, page: 1 })
+			} else if (err) {
+				// Error
+				console.log(err)
+			} else {
+				// Page number was found. Set initial page.
+				currentPage = docs[0].page
 			}
-		}
-		catch (err) { }
+
+			rootState.app.openedBookPath = '../pdfviewer/web/viewer.html' + '?file=' + bookPath
+			rootState.app.toggleBooksContent = false
+
+			// The address of the external links clicked in the book is given to the input named <externalLink>.		
+			try {
+				document.getElementById('book-viewer-iframe').onload = () => {
+					let viewerDocument = document.getElementById('book-viewer-iframe').contentDocument
+					
+					let externalLink = viewerDocument.getElementById('externalLink')
+
+					// Where the input named <externalLink> is listened to and opened on the browser when the value changes.		
+					if (externalLink) {
+						externalLink.onchange = () => shell.openExternal(externalLink.value)
+					}
+
+					let app = viewerDocument.PDFViewerApplication
+
+					if (app) {
+						const updatePageIfNecessary = () => {
+							if (app.page != currentPage) {
+								currentPage = app.page
+								db.update({ path: bookPath }, { path: bookPath, page: currentPage })
+							}
+						}
+	
+						app.page = currentPage
+						setInterval(updatePageIfNecessary, 100)
+					}
+				}
+			}
+			catch (err) { }
+		})
 	},
 	/**
 	 * The book selected from the book content removes.
