@@ -65,7 +65,7 @@ const actions = {
 	 */
 	removeBook({ commit }, args) {
 		// remove the book image.
-		fs.unlink(args.bookImagePath)
+		fs.unlinkSync(args.bookImagePath)
 
 		let bookCount = 0
 		bookListDb.find({}, (err, lists) => {

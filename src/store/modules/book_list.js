@@ -122,7 +122,7 @@ const actions = {
 					bookListDb.findOne({ _id: args.listId }, (err, selectedList) => {
 						selectedList.books.forEach(book => {
 							// remove book image
-							fs.unlink(book.bookImagePath)
+							fs.unlinkSync(book.bookImagePath)
 
 							// does the book author have another book? 
 							// if there is no other book, the author is deleted.
