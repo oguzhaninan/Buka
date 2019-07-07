@@ -24,7 +24,8 @@
     "release-win-x86": "npm run package-win-x86 && npm run installer-win-x86",
     "release-win-x64": "npm run package-win-x64 && npm run installer-win-x64",
     "release-mac-x64": "npm run package-mac-x64 && npm run installer-mac-x64",
-    "clean-package": "rm -r release-builds/ dest/"
+    "clean-package": "rm -r release-builds/ dest/",
+    "postinstall": "opencollective-postinstall || true"
   },
   "keywords": [
     "book",
@@ -54,6 +55,7 @@
     "alertify.js": "^1.0.12",
     "nedb": "^1.8.0",
     "node-google-translate-skidz": "^1.1.1",
+    "opencollective-postinstall": "^2.0.2",
     "request": "^2.81.0",
     "vuex": "^2.3.1"
   },
@@ -64,5 +66,9 @@
     "electron": "^4.0.0",
     "electron-connect": "^0.6.3",
     "node-watch": "^0.5.7"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/Buka"
   }
 }
