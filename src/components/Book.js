@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 
 export default {
     template: `<div class="book" draggable="true" @dragend="dragEnd" @dragstart="dragStart(bookId, listId)">
-                    <img :src="bookImagePath" :title="bookName" @click="openBook(bookPath)" />
+                    <img :src="bookImagePath" :title="bookName" @click="openBook(bookPath)" style="object-fit:contain;" />
                     <button title="Remove Book" class="remove-book-btn dred" 
                         @click="removeBook({bookId: bookId,
                                             bookAuthor: bookAuthor,
